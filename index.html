@@ -27,10 +27,7 @@
     <script>
        const readline = require('readline');
 
-// Initializing required data
-const nernirai = new Array(10000).fill("");
-let j = 0;
-const mathiraiMap = {};
+// Initialize Tamil letters and mathirai values
 const tamilLetters = [
     "ஃ", "அ", "ஆ", "இ", "ஈ", "உ", "ஊ", "எ", "ஏ", "ஒ", "ஓ",
     "க", "கா", "கி", "கீ", "கு", "கூ", "கெ", "கே", "கொ", "கோ",
@@ -50,7 +47,7 @@ const tamilLetters = [
     "ழ", "ழா", "ழி", "ழீ", "ழு", "ழூ", "ழெ", "ழே", "ழொ", "ழோ",
     "ள", "ளா", "ளி", "ளீ", "ளு", "ளூ", "ளெ", "ளே", "ளொ", "ளோ",
     "ற", "றா", "றி", "றீ", "று", "றூ", "றெ", "றே", "றொ", "றோ",
-    "ன", "னா", "னி", "னீ", "னு", "னூ", "னெ", "னே", "னொ", "னோ",
+    "ன", "னா", "ணி", "னீ", "னு", "னூ", "னெ", "னே", "னொ", "னோ",
     "ஐ", "கை", "ஙை", "சை", "ஞை", "டை", "ணை", "தை", "நை",
     "பை", "மை", "யை", "ரை", "லை", "வை", "ழை", "ளை", "றை", "னை",
     "ஔ", "கௌ", "ஙௌ", "சௌ", "ஞௌ", "டௌ", "ணௌ", "தௌ", "நௌ", "பௌ",
@@ -59,7 +56,8 @@ const tamilLetters = [
     "ய்", "ர்", "ல்", "வ்", "ழ்", "ள்", "ற்", "ன்"
 ];
 
-// Initialize mathiraiMap
+// Initialize mathirai map
+const mathiraiMap = {};
 mathiraiMap["ஃ"] = 0.0;
 let i = 1;
 while (tamilLetters[i] !== "ஐ") {
@@ -100,52 +98,70 @@ function getMathiraiValues(input) {
     return syllables.map(syllable => mathiraiMap[syllable] ?? -1);
 }
 
+// Function to check if a sentence is a Venba
+function isVenba(nerniraiList) {
+    // Validate rules:
+    // 1. First word length is 3, with the last value as 0
+    if (nerniraiList.length < 3 || nerniraiList[nerniraiList.length - 1] !== '0') return false;
+    // 2. The next word's first value is 0
+    if (nerniraiList[0] !== '0') return false;
+    // 3. Second word length is 2, with the last value as 0
+    if (nerniraiList.length < 2 || nerniraiList[1] !== '0') return false;
+    // 4. Following word's first value is 1, with the last value as 1
+    if (nerniraiList.length < 3 || nerniraiList[2] !== '1') return false;
+    // 5. Next word's first value is 0
+    if (nerniraiList.length < 4 || nerniraiList[3] !== '0') return false;
+
+    return true;
+}
+
+// Apply Nirai-Ner rules based on mathirai values
 function applyNiraiNerRules(values, analysis) {
+    const nernirai = [];
     let i = 0;
-    nernirai[j] = "";
     while (i < values.length) {
         if (i + 2 < values.length && values[i] === 1.0 && values[i + 1] === 1.0 && values[i + 2] === 0.5) {
             analysis.push("நிரை");
             i += 3;
-            nernirai[j] += '1';
+            nernirai.push('1');
         } else if (i + 2 < values.length && values[i] === 1.0 && values[i + 1] === 2.0 && values[i + 2] === 0.5) {
             analysis.push("நிரை");
             i += 3;
-            nernirai[j] += '1';
+            nernirai.push('1');
         } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 0.5) {
             analysis.push("நேர்");
             i += 2;
-            nernirai[j] += '0';
+            nernirai.push('0');
         } else if (i + 1 < values.length && values[i] === 2.0 && values[i + 1] === 0.5) {
             analysis.push("நேர்");
             i += 2;
-            nernirai[j] += '0';
+            nernirai.push('0');
         } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 1.0) {
             analysis.push("நிரை");
             i += 2;
-            nernirai[j] += '1';
+            nernirai.push('1');
         } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 2.0) {
             analysis.push("நிரை");
             i += 2;
-            nernirai[j] += '1';
+            nernirai.push('1');
+        } else if (i < values.length && values[i] === 0.5) {
+            analysis.push("வலியினம்");
+            i++;
+            nernirai.push('0');
         } else if (i < values.length && values[i] === 2.0) {
-            analysis.push("நேர்");
+            analysis.push("வலியினம்");
             i++;
-            nernirai[j] += '0';
-        } else if (i < values.length && values[i] === 1.0) {
-            analysis.push("நேர்");
-            i++;
-            nernirai[j] += '0';
+            nernirai.push('0');
         } else {
             i++;
         }
     }
-    j++;
+    return nernirai;
 }
 
-// Function to print Venba words
+// Print the Venba words
 function printVenbaWords(nerniraiList) {
-    nerniraiList.forEach((current) => {
+    nerniraiList.forEach(current => {
         switch (current) {
             case "00":
                 process.stdout.write("தேமா ");
@@ -200,11 +216,17 @@ const rl = readline.createInterface({
 rl.question("Enter a Venba: ", (sentence) => {
     const mathiraiValues = getMathiraiValues(sentence);
     const analysis = [];
-    applyNiraiNerRules(mathiraiValues, analysis);
+    const nerniraiList = applyNiraiNerRules(mathiraiValues, analysis);
 
-    printVenbaWords(nernirai.slice(0, j));
+    if (isVenba(nerniraiList)) {
+        printVenbaWords(nerniraiList);
+    } else {
+        console.log("The input does not conform to the Venba structure.");
+    }
+    
     rl.close();
 });
+
 
     </script>
 </body>
