@@ -3,272 +3,503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venba Checker</title>
+    <title>யாப்பு - அலகிடுதல்</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
+
+h1 {
+            text-align: center;
             color: #333;
         }
-        input, button {
-            padding: 10px;
-            margin-top: 10px;
-            font-size: 16px;
+        .content {
+            margin-bottom: 20px;
         }
-        .output {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #fff;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
             border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 30px;
+        }
+        pre {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        #venbaWords {
+            margin-top: 20px;
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 4px;
+
+            #ilakkamContainer {
+            margin-top: 50px;
+            background-color: #e8f0fe;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #ilakkamContainer h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        #ilakkamContainer p {
+            line-height: 1.6;
+            font-size: 18px;
+            color: #34495e;
+        }
         }
     </style>
 </head>
 <body>
-    <h1>Venba Checker</h1>
-    <p>Enter a Tamil Venba text below to check if it's a valid Venba:</p>
+    <div class="container">
+        <h2>வெண்பா-இலக்கணம்</h2>
+        <p>வெண்பாவின் பொது இலக்கணம்:</p>
+        <p>ஈற்றடி  முச்சீராய் ஏனைய அடிகள்  நாற்சீராய் வரும் .<br>
+        இயற்சீர் ( மாச்சீர், விளச்சீர்), வெண்சீர் (காய்ச்சீர்) வரும். பிற சீர்கள் வாரா.<br>
+        இயற்சீர் வெண்டளையும் (மாமுன் நிரை, விளமுன் நேர்) வெண்சீர் வெண்டளையும் (காய்முன் நேர்) வரும். பிற தளைகள் வாரா.<br>
+        ஈற்றடியின்  ஈற்றுச்சீர் நாள், மலர், காசு, பிறப்பு என்ற வாய்பாடுகளுள்  ஒன்றுகொண்டு முடியும்.<br>
+        செப்பலோசை பெற்று வரும்<br>
+        இரண்டடி முதல் 12 அடி வரை வரும் abd உயிர் எழுத்துகளும், உயிர்மெய்யெழுத்துகளும் தத்தம் ஒலி அளவுகளைப் பொருத்துக் குறில் அல்லது நெடில் என வழங்கப்படுகின்றன. குற்றெழுத்து மற்றும் நெட்டெழுத்துகளின் அடுக்குகளை அசைகளாக வகுத்துள்ளனர். அசை என்பது முழுச்சொல்லாக இருக்க வேண்டும் என்பதல்ல, சொல்லின் பகுதிகளாகவும் இருக்கலாம்.<br>
+        நேரசை மற்றும் நிரையசை என்று அசைகள் இரண்டு வகையாகும். குறிலோ நெடிலோ தனித்தோ ஒற்றடுத்தோ (ஒற்று = புள்ளி வைத்த எழுத்து) வருதல் நேரசையாகும். எடுத்துக்காட்டாக நேர், என், நீ, தேன் முதலான சொற்கள் நேரசைச் சொற்கள். இவ்வாறில்லாது இருகுறிலிணைந்து வருதலும், குறிலுக்குப் பின் நெடிலிணைந்து வருதலும், அல்லது இவை இரண்டும் ஒற்றடுத்து வருதலும் நிரையசையாகும். நிரை, படம், புறா முதலான சொற்கள் நிரையசை யாகும். ஒலிப்பியல் அடிப்படையில் அசைகளே கவிதைகளின் அடிப்படைக் கூறுகளாவன.<br>
+        வசதிக்காக அசைகள் பின்வருமாறு பெயரிடப்படுகிறது.</p>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Word</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>நேர்நேர்:</strong></td>
+                    <td>தேமா</td>
+                </tr>
+                <tr>
+                    <td><strong>நிரைநேர்:</strong></td>
+                    <td>புளிமா</td>
+                </tr>
+                <tr>
+                    <td><strong>நேர்நிரை:</strong></td>
+                    <td>கூவிளம்</td>
+                </tr>
+                <tr>
+                    <td><strong>நிரைநிரை:</strong></td>
+                    <td>கருவிளம்</td>
+                </tr>
+                <tr>
+                    <td><strong>நேர்நேர்நேர்:</strong></td>
+                    <td>தேமாங்காய்</td>
+                </tr>
+                <tr>
+                    <td><strong>நேர்நிரைநேர்:</strong></td>
+                    <td>கூவிளங்காய்</td>
+                </tr>
+                <tr>
+                    <td><strong>நிரைநேர்நேர்:</strong></td>
+                    <td>புளிமாங்காய்</td>
+                </tr>
+                <tr>
+                    <td><strong>நிரைநிரைநேர்:</strong></td>
+                    <td>கருவிளங்காய்</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        </p>
+        <p>அசைகளின் தொடர் சீர் எனப்படும். சீர்கள் ஒன்றன்பின் ஒன்றாக வருதலால் தளைகள் உண்டாகும்.</p>
     
-    <input type="text" id="inputText" placeholder="Enter Venba text here">
-    <button onclick="checkVenba()">Check Venba</button>
+        <h1>அலகிடுதல்</h1>
+        <textarea id="tamilInput" placeholder="Enter Tamil text (Venba) here..."></textarea>
+        <button onclick="analyzePoetry()">Analyze</button>
 
-    <div class="output" id="output"></div>
+        <div id="output">
+            <h2>Analysis Output:</h2>
+            <pre id="mathiraiOutput"></pre>
+            <pre id="niraiNerOutput"></pre>
+            <pre id="venbaOutput"></pre>
+        </div>
+        <div id="venbaWords"></div>
+        <div>    </div><br>
+        
+
+        <div class="content">
+            <p><strong>செய்யுளின் சீரை அசை பிரித்து நேரசை, நிரையசை என்று பகுத்துக் காண்பதை முன் வகுப்பில் அறிந்துள்ளோம்.</strong></p>
+            <p>அலகிடுதல் என்பது சீரைப் பிரித்து அசை பார்த்து, அசைக்கேற்ற வாய்பாடு காணுதல்.</p>
+        </div>
+    
+        <h2>எ.கா.</h2>
+        <p>உலகத்தோ டொட்ட வொழுகல் பலகற்றும்<br>
+        கல்லார் அறிவிலா தார்.</p>
+
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>எ.கா.</th>
+                    <th>சீர்</th>
+                    <th>அசை</th>
+                    <th>வாய்பாடு</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>உல/கத்/தோ</td>
+                    <td>நிரை நேர் நேர்</td>
+                    <td>புளிமாங்காய்</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>டொட்/ட</td>
+                    <td>நேர் நேர்</td>
+                    <td>தேமா</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>வொழு/கல்</td>
+                    <td>நிரை நேர்</td>
+                    <td>புளிமா</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>பல/கற்/றும்</td>
+                    <td>நிரை நேர் நேர்</td>
+                    <td>புளிமாங்காய்</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>கல்/லார்</td>
+                    <td>நேர் நேர்</td>
+                    <td>தேமா</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>அறி/விலா</td>
+                    <td>நிரை நிரை</td>
+                    <td>கருவிளம்</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>தார்</td>
+                    <td>நேர்</td>
+                    <td>நாள்</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- This section will display Venba words -->
+    </div>
+
+    
 
     <script>
         const tamilLetters = [
-    "ஃ", "அ", "ஆ", "இ", "ஈ", "உ", "ஊ", "எ", "ஏ", "ஒ", "ஓ",
-    "க", "கா", "கி", "கீ", "கு", "கூ", "கெ", "கே", "கொ", "கோ",
-    "ங", "ஙா", "ஙி", "ஙீ", "ஙு", "ஙூ", "ஙெ", "ஙே", "ஙொ", "ஙோ",
-    "ச", "சா", "சி", "சீ", "சு", "சூ", "செ", "சே", "சொ", "சோ",
-    "ஞ", "ஞா", "ஞி", "ஞீ", "ஞு", "ஞூ", "ஞெ", "ஞே", "ஞொ", "ஞோ",
-    "ட", "டா", "டி", "டீ", "டு", "டூ", "டெ", "டே", "டொ", "டோ",
-    "ண", "ணா", "ணி", "ணீ", "ணு", "ணூ", "ணெ", "ணே", "ணொ", "ணோ",
-    "த", "தா", "தி", "தீ", "து", "தூ", "தெ", "தே", "தொ", "தோ",
-    "ந", "நா", "நி", "நீ", "நு", "நூ", "நெ", "நே", "நொ", "நோ",
-    "ப", "பா", "பி", "பீ", "பு", "பூ", "பெ", "பே", "பொ", "போ",
-    "ம", "மா", "மி", "மீ", "மு", "மூ", "மெ", "மே", "மொ", "மோ",
-    "ய", "யா", "யி", "யீ", "யு", "யூ", "யெ", "யே", "யொ", "யோ",
-    "ர", "ரா", "ரி", "ரீ", "ரு", "ரூ", "ரெ", "ரே", "ரொ", "ரோ",
-    "ல", "லா", "லி", "லீ", "லு", "லூ", "லெ", "லே", "லொ", "லோ",
-    "வ", "வா", "வி", "வீ", "வு", "வூ", "வெ", "வே", "வொ", "வோ",
-    "ழ", "ழா", "ழி", "ழீ", "ழு", "ழூ", "ழெ", "ழே", "ழொ", "ழோ",
-    "ள", "ளா", "ளி", "ளீ", "ளு", "ளூ", "ளெ", "ளே", "ளொ", "ளோ",
-    "ற", "றா", "றி", "றீ", "று", "றூ", "றெ", "றே", "றொ", "றோ",
-    "ன", "னா", "னி", "னீ", "னு", "னூ", "னெ", "னே", "னொ", "னோ",
-    "ஐ", "கை", "ஙை", "சை", "ஞை", "டை", "ணை", "தை", "நை",
-    "பை", "மை", "யை", "ரை", "லை", "வை", "ழை", "ளை", "றை", "னை",
-    "ஔ", "கௌ", "ஙௌ", "சௌ", "ஞௌ", "டௌ", "ணௌ", "தௌ", "நௌ", "பௌ",
-    "மௌ", "யௌ", "ரௌ", "லௌ", "வௌ", "ழௌ", "ளௌ", "றௌ", "னௌ",
-    "க்", "ங்", "ச்", "ஞ்", "ட்", "ண்", "த்", "ந்", "ப்", "ம்",
-    "ய்", "ர்", "ல்", "வ்", "ழ்", "ள்", "ற்", "ன்"
-];
+            "ஃ", "அ", "ஆ", "இ", "ஈ", "உ", "ஊ", "எ", "ஏ", "ஒ", "ஓ",
+            "க", "கா", "கி", "கீ", "கு", "கூ", "கெ", "கே", "கொ", "கோ",
+            "ங", "ஙா", "ஙி", "ஙீ", "ஙு", "ஙூ", "ஙெ", "ஙே", "ஙொ", "ஙோ",
+            "ச", "சா", "சி", "சீ", "சு", "சூ", "செ", "சே", "சொ", "சோ",
+            "ஞ", "ஞா", "ஞி", "ஞீ", "ஞு", "ஞூ", "ஞெ", "ஞே", "ஞொ", "ஞோ",
+            "ட", "டா", "டி", "டீ", "டு", "டூ", "டெ", "டே", "டொ", "டோ",
+            "ண", "ணா", "ணி", "ணீ", "ணு", "ணூ", "ணெ", "ணே", "ணொ", "ணோ",
+            "த", "தா", "தி", "தீ", "து", "தூ", "தெ", "தே", "தொ", "தோ",
+            "ந", "நா", "நி", "நீ", "நு", "நூ", "நெ", "நே", "நொ", "நோ",
+            "ப", "பா", "பி", "பீ", "பு", "பூ", "பெ", "பே", "பொ", "போ",
+            "ம", "மா", "மி", "மீ", "மு", "மூ", "மெ", "மே", "மொ", "மோ",
+            "ய", "யா", "யி", "யீ", "யு", "யூ", "யெ", "யே", "யொ", "யோ",
+            "ர", "ரா", "ரி", "ரீ", "ரு", "ரூ", "ரெ", "ரே", "ரொ", "ரோ",
+            "ல", "லா", "லி", "லீ", "லு", "லூ", "லெ", "லே", "லொ", "லோ",
+            "வ", "வா", "வி", "வீ", "வு", "வூ", "வெ", "வே", "வொ", "வோ",
+            "ழ", "ழா", "ழி", "ழீ", "ழு", "ழூ", "ழெ", "ழே", "ழொ", "ழோ",
+            "ள", "ளா", "ளி", "ளீ", "ளு", "ளூ", "ளெ", "ளே", "ளொ", "ளோ",
+            "ற", "றா", "றி", "றீ", "று", "றூ", "றெ", "றே", "றொ", "றோ",
+            "ன", "னா", "னி", "னீ", "னு", "னூ", "னெ", "னே", "னொ", "னோ",
+            "ஐ", "கை", "ஙை", "சை", "ஞை", "டை", "ணை", "தை", "நை",
+            "பை", "மை", "யை", "ரை", "லை", "வை", "ழை", "ளை", "றை", "னை",
+            "ஔ", "கௌ", "ஙௌ", "சௌ", "ஞௌ", "டௌ", "ணௌ", "தௌ", "நௌ", "பௌ",
+            "மௌ", "யௌ", "ரௌ", "லௌ", "வௌ", "ழௌ", "ளௌ", "றௌ", "னௌ",
+            "க்", "ங்", "ச்", "ஞ்", "ட்", "ண்", "த்", "ந்", "ப்", "ம்",
+            "ய்", "ர்", "ல்", "வ்", "ழ்", "ள்", "ற்", "ன்"
+        ];
 
-const mathiraiMap = new Map();
-const nernirai = [];
-let j = 0;
+        const mathiraiMap = new Map();
+        const nernirai = [];
+        let j = 0;
 
-function initializeMathiraiMap() {
-    let i = 1;
-    while (tamilLetters[i] !== "ஐ") {
-        if (i % 2 === 0) {
-            mathiraiMap.set(tamilLetters[i], 2.0);
-        } else {
-            mathiraiMap.set(tamilLetters[i], 1.0);
+        function initializeMathiraiMap() {
+            let i = 1;
+            while (tamilLetters[i] !== "ஐ") {
+                if (i % 2 === 0) {
+                    mathiraiMap.set(tamilLetters[i], 2.0);
+                } else {
+                    mathiraiMap.set(tamilLetters[i], 1.0);
+                }
+                i++;
+            }
+            while (tamilLetters[i] !== "க்") {
+                mathiraiMap.set(tamilLetters[i], 2.0);
+                i++;
+            }
+            while (tamilLetters[i] !== "ன்") {
+                mathiraiMap.set(tamilLetters[i], 0.5);
+                i++;
+            }
+            mathiraiMap.set("ன்", 0.5);
         }
-        i++;
-    }
-    while (tamilLetters[i] !== "க்") {
-        mathiraiMap.set(tamilLetters[i], 2.0);
-        i++;
-    }
-    while (tamilLetters[i] !== "ன்") {
-        mathiraiMap.set(tamilLetters[i], 0.5);
-        i++;
-    }
-    mathiraiMap.set("ன்", 0.5);
-}
 
-function splitToSyllables(input) {
-    const syllables = [];
-    let i = 0;
-    const length = input.length;
-    while (i < length) {
-        const currentChar = input.charAt(i);
-        if (i < length - 1 && isTamilCompound(input.charAt(i + 1))) {
-            syllables.push(input.substring(i, i + 2));
-            i++;
-        } else {
-            syllables.push(currentChar);
+        function splitToSyllables(input) {
+            const syllables = [];
+            let i = 0;
+            const length = input.length;
+            while (i < length) {
+                const currentChar = input.charAt(i);
+                if (i < length - 1 && isTamilCompound(input.charAt(i + 1))) {
+                    syllables.push(input.substring(i, i + 2));
+                    i++;
+                } else {
+                    syllables.push(currentChar);
+                }
+                i++;
+            }
+            return syllables;
         }
-        i++;
-    }
-    return syllables;
-}
 
-function isTamilCompound(ch) {
-    return ch >= '\u0BBE' && ch <= '\u0BCD';
-}
-
-function getMathiraiValues(input) {
-    const syllables = splitToSyllables(input);
-    const result = [];
-    syllables.forEach(syllable => {
-        let mathirai = mathiraiMap.get(syllable);
-        if (syllable === " ") {
-            mathirai = -1.0;
+        function isTamilCompound(ch) {
+            return ch >= '\u0BBE' && ch <= '\u0BCD';
         }
-        if (mathirai !== undefined) {
-            result.push(mathirai);
-        } else {
-            console.log("Unknown syllable: " + syllable);
-        }
-    });
-    return result;
-}
 
-function applyNiraiNerRules(values, analysis) {
-    let i = 0;
-    nernirai[j] = "";
-    while (i < values.length) {
-        if (i + 2 < values.length && values[i] === 1.0 && values[i + 1] === 1.0 && values[i + 2] === 0.5) {
-            analysis.push("நிரை");
-            i += 3;
-            nernirai[j] += '1';
-        } else if (i + 2 < values.length && values[i] === 1.0 && values[i + 1] === 2.0 && values[i + 2] === 0.5) {
-            analysis.push("நிரை");
-            i += 3;
-            nernirai[j] += '1';
-        } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 0.5) {
-            analysis.push("நேர்");
-            i += 2;
-            nernirai[j] += '0';
-        } else if (i + 1 < values.length && values[i] === 2.0 && values[i + 1] === 0.5) {
-            analysis.push("நேர்");
-            i += 2;
-            nernirai[j] += '0';
-        } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 1.0) {
-            analysis.push("நிரை");
-            i += 2;
-            nernirai[j] += '1';
-        } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 2.0) {
-            analysis.push("நிரை");
-            i += 2;
-            nernirai[j] += '1';
-        } else if (i < values.length && values[i] === 2.0) {
-            analysis.push("நேர்");
-            i++;
-            nernirai[j] += '0';
-        } else if (i < values.length && values[i] === 1.0) {
-            analysis.push("நேர்");
-            i++;
-            nernirai[j] += '0';
-        } else {
-            i++;
+        function getMathiraiValues(input) {
+            const syllables = splitToSyllables(input);
+            const result = [];
+            syllables.forEach(syllable => {
+                result.push(mathiraiMap.get(syllable) || -1.0); 
+            });
+            return result;
         }
-    }
-    j++;
-}
 
-function isVenba(nerniraiList) {
-    const size = nerniraiList.length;
-    if (!(size === 7 || size === 15 || size === 31 || size === 47)) {
-        return false;
-    }
-    const lastSir = nerniraiList[size - 1];
-    const length = lastSir.length;
-    if (!(length === 1 || length === 2)) {
-        return false;
-    }
-    if (lastSir === "01" || lastSir === "11") {
-        return false;
-    }
-    for (let i = 0; i < nerniraiList.length - 1; i++) {
-        const current = nerniraiList[i];
-        const next = nerniraiList[i + 1];
-        if (current.length === 3) {
-            if (current.charAt(2) !== '0' || next.charAt(0) !== '0') {
+        function applyNiraiNerRules(values, analysis) {
+            let i = 0;
+            nernirai[j] = "";
+            while (i < values.length) {
+                if (i + 2 < values.length && values[i] === 1.0 && values[i + 1] === 1.0 && values[i + 2] === 0.5) {
+                    analysis.push("நிரை");
+                    i += 3;
+                    nernirai[j] += '1';
+                } else if (i + 2 < values.length && values[i] === 1.0 && values[i + 1] === 2.0 && values[i + 2] === 0.5) {
+                    analysis.push("நிரை");
+                    i += 3;
+                    nernirai[j] += '1';
+                } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 0.5) {
+                    analysis.push("நேர்");
+                    i += 2;
+                    nernirai[j] += '0';
+                } else if (i + 1 < values.length && values[i] === 2.0 && values[i + 1] === 0.5) {
+                    analysis.push("நேர்");
+                    i += 2;
+                    nernirai[j] += '0';
+                } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 1.0) {
+                    analysis.push("நிரை");
+                    i += 2;
+                    nernirai[j] += '1';
+                } else if (i + 1 < values.length && values[i] === 1.0 && values[i + 1] === 2.0) {
+                    analysis.push("நிரை");
+                    i += 2;
+                    nernirai[j] += '1';
+                } else if (i < values.length && values[i] === 2.0) {
+                    analysis.push("நேர்");
+                    i++;
+                    nernirai[j] += '0';
+                } else if (i < values.length && values[i] === 1.0) {
+                    analysis.push("நேர்");
+                    i++;
+                    nernirai[j] += '0';
+                } else {
+                    i++;
+                }
+            }
+            j++;
+        }
+
+        function isVenba(nerniraiList) {
+            const size = nerniraiList.length;
+            if (!(size === 7 || size === 15 || size === 31 || size === 47)) {
                 return false;
             }
-        } else if (current.length === 2) {
-            const lastChar = current.charAt(1);
-            const expectedStartChar = (lastChar === '0') ? '1' : '0';
-            if (next.charAt(0) !== expectedStartChar) {
+            const lastSir = nerniraiList[size - 1];
+            const length = lastSir.length;
+            if (!(length === 1 || length === 2)) {
                 return false;
             }
+            if (lastSir === "01" || lastSir === "11") {
+                return false;
+            }
+            for (let i = 0; i < nerniraiList.length - 1; i++) {
+                const current = nerniraiList[i];
+                const next = nerniraiList[i + 1];
+                if (current.length === 3) {
+                    if (current.charAt(2) !== '0' || next.charAt(0) !== '0') {
+                        return false;
+                    }
+                } else if (current.length === 2) {
+                    const lastChar = current.charAt(1);
+                    const expectedStartChar = (lastChar === '0') ? '1' : '0';
+                    if (next.charAt(0) !== expectedStartChar) {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
-    }
-    return true;
-}
 
-function printVenbaWords(nerniraiList) {
-    nerniraiList.forEach(current => {
-        switch (current) {
-            case "00":
-                console.log("தேமா ");
-                break;
-            case "10":
-                console.log("புளிமா ");
-                break;
-            case "01":
-                console.log("கூவிளம் ");
-                break;
-            case "11":
-                console.log("கருவிளம் ");
-                break;
-            case "000":
-                console.log("தேமாங்காய் ");
-                break;
-            case "100":
-                console.log("புளிமாங்காய் ");
-                break;
-            case "010":
-                console.log("கூவிளங்காய் ");
-                break;
-            case "110":
-                console.log("கருவிளங்காய் ");
-                break;
+        function printVenbaWords(nerniraiList) {
+            const venbaWordsOutput = document.getElementById('venbaWords');
+            venbaWordsOutput.innerHTML = '';  // Clear the previous output
+
+            nerniraiList.forEach(current => {
+                switch (current) {
+                    case "00":
+                        venbaWordsOutput.innerHTML += "தேமா ";
+                        break;
+                    case "10":
+                        venbaWordsOutput.innerHTML += "புளிமா ";
+                        break;
+                    case "01":
+                        venbaWordsOutput.innerHTML += "கூவிளம் ";
+                        break;
+                    case "11":
+                        venbaWordsOutput.innerHTML += "கருவிளம் ";
+                        break;
+                    case "000":
+                        venbaWordsOutput.innerHTML += "தேமாங்காய் ";
+                        break;
+                    case "100":
+                        venbaWordsOutput.innerHTML += "புளிமாங்காய் ";
+                        break;
+                    case "010":
+                        venbaWordsOutput.innerHTML += "கூவிளங்காய் ";
+                        break;
+                    case "110":
+                        venbaWordsOutput.innerHTML += "கருவிளங்காய் ";
+                        break;
+                }
+            });
+
+            const lastSir = nerniraiList[nerniraiList.length - 1];
+            switch (lastSir) {
+                case "0":
+                    venbaWordsOutput.innerHTML += "நாள்";
+                    break;
+                case "1":
+                    venbaWordsOutput.innerHTML += "மலர்";
+                    break;
+                case "00":
+                    venbaWordsOutput.innerHTML += "காசு";
+                    break;
+                case "10":
+                    venbaWordsOutput.innerHTML += "பிறப்பு";
+                    break;
+            }
         }
-    });
 
-    const lastSir = nerniraiList[nerniraiList.length - 1];
-    switch (lastSir) {
-        case "0":
-            console.log("நாள்");
-            break;
-        case "1":
-            console.log("மலர்");
-            break;
-        case "00":
-            console.log("காசு");
-            break;
-        case "10":
-            console.log("பிறப்பு");
-            break;
-    }
-}
+        // Main function that gets invoked when the user clicks "Analyze"
+        function analyzePoetry() {
+            const sentence = document.getElementById('tamilInput').value;
+            initializeMathiraiMap();
+            const mathiraiValues = getMathiraiValues(sentence);
 
-// Main execution
-function checkVenba() {
-            let inputText = document.getElementById('inputText').value;
-            let mathiraiValues = getMathiraiValues(inputText);
+            // Display Mathirai values
+            document.getElementById('mathiraiOutput').textContent = "Mathirai values: " + mathiraiValues;
 
-            let { analysis, nernirai } = applyNiraiNerRules(mathiraiValues);
-            let nerniraiList = [nernirai];
+            // Process Nirai-Ner analysis
+            const niraiNerAnalysis = [];
+            let tempValues = [];
 
-            let outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = `Mathirai values: ${mathiraiValues}<br>`;
+            mathiraiValues.forEach(value => {
+                if (value === -1.0) { 
+                    applyNiraiNerRules(tempValues, niraiNerAnalysis);
+                    niraiNerAnalysis.push(" ");
+                    tempValues = [];
+                    j++;
+                } else {
+                    tempValues.push(value);
+                }
+            });
 
-            outputDiv.innerHTML += `Nirai Ner Analysis: ${analysis.join(', ')}<br>`;
-            outputDiv.innerHTML += `Nernirai binary segments: ${nerniraiList.join(', ')}<br>`;
+            if (tempValues.length > 0) {
+                applyNiraiNerRules(tempValues, niraiNerAnalysis);
+            }
+
+            document.getElementById('niraiNerOutput').textContent = "Nirai Ner Analysis: " + niraiNerAnalysis.join("");
+
+            // Process Venba check
+            const nerniraiList = [];
+            for (let k = 0; k <= j; k++) {
+                if (nernirai[k] !== undefined && nernirai[k].length > 0) {
+                    nerniraiList.push(nernirai[k]);
+                }
+            }
+
+            document.getElementById('venbaOutput').textContent = "Nernirai binary segments: " + nerniraiList;
 
             if (isVenba(nerniraiList)) {
-                outputDiv.innerHTML += "This is a Venba.";
+                document.getElementById('venbaOutput').textContent += "\nThis is a Venba.";
+                printVenbaWords(nerniraiList);
             } else {
-                outputDiv.innerHTML += "This is not a Venba.";
+                document.getElementById('venbaOutput').textContent += "\nThis is not a Venba.";
             }
         }
-
     </script>
 </body>
 </html>
