@@ -148,7 +148,7 @@
             const next = nerniraiList[i + 1];
             if (current.length === 3 && (current[2] !== '0' || next[0] !== '0')) return false;
             if (current.length === 2) {
-                const expectedStart = current[1] === '0' ? '0' : '1';
+                const expectedStart = current === "01" ? "1" : "0";
                 if (next[0] !== expectedStart) return false;
             }
         }
@@ -157,18 +157,24 @@
 
     const analyzeVenba = () => {
         const input = document.getElementById('venba-input').value.trim();
-        if (input === "") {
-            document.getElementById('result').innerText = "Please enter Tamil text.";
+        if (!isValidTamilInput(input)) {
+            document.getElementById('result').innerText = "Please enter valid Tamil text.";
             return;
         }
-        const mathiraiValues = getMathiraiValues(input);
-        const { analysis, nerniraiStr } = applyNiraiNerRules(mathiraiValues);
 
-        document.getElementById('result').innerText = isVenba(analysis) ? "This follows Venba rules!" : "This does not follow Venba rules.";
-        document.getElementById('analysis').innerHTML = `<p>Mathirai Values: ${mathiraiValues}</p><p>Ner/Nirai Pattern: ${analysis.join(", ")}</p>`;
+        const values = getMathiraiValues(input);
+        const { analysis, nerniraiStr } = applyNiraiNerRules(values);
+        const venbaResult = isVenba(analysis) ? "The input follows Venba rules." : "The input does not follow Venba rules.";
+
+        document.getElementById('result').innerText = venbaResult;
+        document.getElementById('analysis').innerHTML = "<p>Analysis: " + analysis.join(', ') + "</p><p>Mathirai Values: " + values.join(', ') + "</p><p>Ner/Nirai Pattern: " + nerniraiStr + "</p>";
+    };
+
+    const isValidTamilInput = (input) => {
+        const tamilRegex = /^[\u0B80-\u0BFF\s]+$/; // Matches Tamil Unicode block
+        return tamilRegex.test(input);
     };
 </script>
 
 </body>
 </html>
-
