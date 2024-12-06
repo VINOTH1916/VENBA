@@ -1,0 +1,5 @@
+com.javaproject.venbakural.test.app-core-1.6.1-0 C:\Users\91915\.gradle\caches\transforms-4\6830a08a238b54d0dac17148d16fdb04\transformed\core-1.6.1\res
+com.javaproject.venbakural.test.app-androidTest-1 C:\Users\91915\AndroidStudioProjects\VenbaKural\app\build\generated\res\resValues\androidTest\debug
+com.javaproject.venbakural.test.app-mergeDebugAndroidTestResources-2 C:\Users\91915\AndroidStudioProjects\VenbaKural\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.javaproject.venbakural.test.app-mergeDebugAndroidTestResources-3 C:\Users\91915\AndroidStudioProjects\VenbaKural\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.javaproject.venbakural.test.app-debugAndroidTest-4 C:\Users\91915\AndroidStudioProjects\VenbaKural\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

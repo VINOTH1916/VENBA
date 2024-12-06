@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="குறள்‌ வெண்பல்லவி"
+                android:textColor="#3F51B5"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/kuralNumberEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="பா (அ) குறள் எண் தருக"
+                android:inputType="text"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/file1EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter a Note 1 for 'நேர்':"
+                android:inputType="text"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/file0EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter a Note 2 for 'நிரை':"
+                android:inputType="text"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/fileMinus1EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter a Note 3 for 'space':"
+                android:inputType="text"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/speedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter playback speed (e.g., 1.0 for normal)"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/showKuralButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="showKural"
+                android:text="பா கொண்டு இசைக்க"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/kuralTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/mathiraiTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/binarySegmentTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/venbaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:padding="8dp" />
+
+
+            <TextView
+                android:id="@+id/patternTextView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginBottom="16dp"
+                android:textSize="17sp"
+                android:textColor="#b21500"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:src="@drawable/dfa"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:text="தனித்து இசைக்க"
+                android:textSize="15sp"
+                android:textColor="#3F51B5"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="4300dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:textSize="15sp"
+                android:textColor="#3F51B5"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="Demo" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="351dp"
+                android:layout_height="660dp"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/demo" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
